@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Showowa Bank</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        background-color: rgb(10, 54, 250);
+      }
+
+      .navbar-brand,
+      .nav-link {
+        color: #ffffff !important;
+      }
+
+      .signin-form {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+        margin-bottom: 80px;
+      }
+
+      .form-control:focus {
+        box-shadow: none;
+        border-color: #007bff;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+
+      footer {
+        background-color: #343a40;
+        color: #ffffff;
+        padding: 20px 0;
+        position: absolute;
+        /* bottom: 0; */
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="image/mona.webp"
+            alt=""
+            style="border-radius: 100%"
+            width="50px"
+          />
+          Mona Bank</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signup.html">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Signin Form -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="signin-form">
+            <h2 class="text-center mb-4">Login to Your Account</h2>
+            <form>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Enter your password"
+                />
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="rememberMe"
+                />
+                <label class="form-check-label" for="rememberMe"
+                  >Remember Me</label
+                >
+              </div>
+            </form>
+            <button onclick="logIn()" class="btn btn-primary w-100">
+              Login
+            </button>
+            <p class="text-center mt-3">
+              Don't have an account? <a href="signup.html">Sign up here</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <div class="container">
+        <p>&copy; 2024 Showowa Bank. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  <script>
+    function logIn() {
+      if (localStorage.currentUser) {
+        location.href = "./dashboard.html";
+      }
+
+      var allUsers = JSON.parse(localStorage.getItem("userDetails"));
+      var find = allUsers.find((user) => user.email == email.value);
+      if (find) {
+        console.log(find);
+        if (find.password == password.value) {
+          localStorage.setItem("currentUser", JSON.stringify(find));
+          location.href = "./dashboard.html";
+        } else {
+          alert("Invalid password");
+        }
+      } else {
+        alert("User not found");
+      }
+    }
+  </script>
+</html>

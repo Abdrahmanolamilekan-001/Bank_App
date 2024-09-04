@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Showowa Bank</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom Styles */
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        border-radius: 3%;
+        background-color: rgb(27, 94, 240);
+      }
+
+      .jumbotron {
+        background-image: url("https://source.unsplash.com/1600x900/?finance,banking");
+        background-size: cover;
+        color: white;
+        padding: 50px 25px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      .jumbotron h1 {
+        font-weight: bold;
+      }
+      /* .Trans {
+        border: 1px solid #211ae9;
+        border-radius: 3px;
+        text-align: center;
+        text-decoration: none;
+      } */
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+
+      .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      footer {
+        background-color: #343a40;
+        color: #ffffff;
+        padding: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="image/mona.webp"
+            alt=""
+            style="border-radius: 100%"
+            width="50px"
+          />
+          Mona Bank</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signup.html">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signin.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <marquee behavior="" direction="rights" style="font-size: 30px">
+      Welcome Come To Mona Bank!</marquee
+    >
+    <!-- Hero Section -->
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="display-4">Welcome to Mona Bank</h1>
+        <p class="lead">Your trusted partner in financial success.</p>
+        <p>
+          <a href="signup.html" class="btn btn-primary btn-lg p-2 m-3"
+            >Transfer</a
+          >
+
+          <a href="#features" class="btn btn-primary btn-lg p-2 m-3"
+            >Withdraw</a
+          >
+
+          <a href="#features" class="btn btn-primary btn-lg p-2 m-3">
+            Airtime</a
+          >
+
+          <a href="" class="btn btn-primary btn-lg p-2 m-3">Loan</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="container my-5">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Secure Banking</h5>
+              <p class="card-text">
+                Experience state-of-the-art security with Mona Bank.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Easy Payments</h5>
+              <p class="card-text">Seamless payments, transfers, and more.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">24/7 Support</h5>
+              <p class="card-text">
+                Our support team is available round the clock to assist you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-5 bg-primary text-white text-center">
+      <div class="container">
+        <h2>Ready to take control of your finances?</h2>
+        <p>
+          Join thousands of satisfied customers who trust Mona Bank with their
+          financial future.
+        </p>
+        <a href="signup.html" class="btn btn-light btn-lg">Join Now</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <div class="container">
+        <p>&copy; 2024 Mona Bank. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
