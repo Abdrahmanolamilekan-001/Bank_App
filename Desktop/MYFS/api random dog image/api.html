@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Dog Image App</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .image-card {
+        margin: 20px auto;
+        max-width: 600px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .dog-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+      .generate-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1 class="my-4">Random Dog Image</h1>
+      <div class="image-card">
+        <img
+          class="dog-image"
+          id="dogImage"
+          src="https://images.dog.ceo/breeds/labrador/n02099712_1251.jpg"
+          alt="Random Dog"
+        />
+      </div>
+      <button
+        class="btn btn-primary generate-btn"
+        id="fetchbtn"
+        onclick=" fetchData() "
+      >
+        Generate Another Image
+      </button>
+    </div>
+    <!-- 
+    <script>
+      async function fetchData() {
+        fetchbtn.innerText = "Loading...";
+        fetchbtn.disabled = true;
+        const url = "https://dog.ceo/api/breeds/image/random";
+
+        try {
+          const response = await fetch(url);
+          const data = await response.json().then((data) => {
+            document.getElementById("dogImage").src = data.message;
+            fetchbtn.innerText = "Generate Another Image";
+            fetchbtn.disabled = false;
+          });
+
+          // fetchbtn.disabled = false;
+        } catch (error) {
+          console.error("Error fetching the dog image:", error);
+        }
+      }
+    </script> -->
+    <!-- <link rel="stylesheet" href="./api.js" /> -->
+    <script src="./api.js"></script>
+  </body>
+</html>
