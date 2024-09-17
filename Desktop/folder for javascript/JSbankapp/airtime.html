@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Airtime - Showowa Bank</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        background-color: rgb(22, 58, 236);
+      }
+
+      .navbar-brand,
+      .nav-link {
+        color: #ffffff !important;
+      }
+
+      .transfer-form {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+        margin-bottom: 100px;
+      }
+
+      .form-control:focus {
+        box-shadow: none;
+        border-color: #007bff;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+
+      footer {
+        background-color: #343a40;
+        color: #ffffff;
+        padding: 20px 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="image/mona.webp"
+            alt="Mona Bank"
+            style="border-radius: 100%"
+            width="50px"
+          />
+          Mona Bank
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signup.html">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signin.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="dashboard.html">Dashboard</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Airtime Purchase Form -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="transfer-form">
+            <h2 class="text-center mb-4">Buy Airtime</h2>
+            <form id="airtime-form">
+              <div class="mb-3">
+                <label for="provider" class="form-label">Select Provider</label>
+                <select class="form-select" id="provider" required>
+                  <option value="MTN">MTN</option>
+                  <option value="Airtel">Airtel</option>
+                  <option value="Glo">Glo</option>
+                  <option value="9Mobile">9Mobile</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="airtimePhone" class="form-label"
+                  >Phone Number</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="airtimePhone"
+                  placeholder="Enter Phone Number"
+                  pattern="\d*"
+                  maxlength="11"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="airtimeAmount" class="form-label">Amount</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="airtimeAmount"
+                  placeholder="Enter Amount"
+                  min="1"
+                  required
+                />
+              </div>
+
+              <div class="mb-3 text-danger" id="airtimeStatus"></div>
+
+              <button class="btn btn-primary w-100" type="submit">
+                Buy Airtime
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <div class="container">
+        <p>&copy; 2024 Showowa Bank. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Retrieve current user data
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+      // Ensure the user is logged in
+      if (!currentUser) {
+        alert("User not logged in.");
+        location.href = "./signin.html";
+      }
+
+      // Handle form submission for airtime purchase
+      document
+        .getElementById("airtime-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const phone = document.getElementById("airtimePhone").value;
+          const amount = parseFloat(
+            document.getElementById("airtimeAmount").value
+          );
+          const provider = document.getElementById("provider").value;
+
+          // Validate the entered amount
+          if (isNaN(amount) || amount <= 0) {
+            document.getElementById("airtimeStatus").textContent =
+              "Invalid amount.";
+            return;
+          }
+
+          // Check if the user has sufficient balance
+          if (amount > currentUser.accountBalance) {
+            document.getElementById("airtimeStatus").textContent =
+              "Insufficient balance.";
+            return;
+          }
+
+          // Deduct the amount from user's balance
+          currentUser.accountBalance -= amount;
+
+          // Ensure transactions array exists
+          if (!currentUser.transactions) {
+            currentUser.transactions = [];
+          }
+
+          // Update the transaction history
+          const transaction = {
+            date: new Date().toLocaleString(),
+            description: `Airtime purchase for ${phone} (${provider})`,
+            amount: `- $${amount.toFixed(2)}`,
+            balance: `$${currentUser.accountBalance.toFixed(2)}`,
+          };
+
+          currentUser.transactions.push(transaction);
+          localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+          // Display success message
+          document.getElementById("airtimeStatus").textContent =
+            "Airtime purchased successfully!";
+        });
+    </script>
+  </body>
+</html>
