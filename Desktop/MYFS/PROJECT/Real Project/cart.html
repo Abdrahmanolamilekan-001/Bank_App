@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" /> -->
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section id="header">
+      <a href="#"
+        ><img width="30" src="images/20230902_0720112.jpg" class="logo" alt=""
+      /></a>
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li id="lg-bag" cx>
+            <a class="active" href="Cart.html"
+              ><img width="30" src="images/shopping-cart.png" alt=""
+            /></a>
+          </li>
+          <a href="#" id="close"
+            ><img width="30px" src="images/close (1).png" alt=""
+          /></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="Cart.html"
+          ><img width="25" src="images/shopping-cart.png" alt=""
+        /></a>
+        <img width="25" id="bar" src="images/hamburger.png" alt="" />
+      </div>
+    </section>
+
+    <section id="page-header" class="about-header">
+      <h2>#let's_talk</h2>
+      <p>LEAVE A MESSAGE,We love to hear from you!</p>
+    </section>
+
+    <section id="cart" class="section-p1">
+      <table width="100%">
+        <thead>
+          <tr>
+            <td>Remove</td>
+            <td>Image</td>
+            <td>Product</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Subtotal</td>
+          </tr>
+        </thead>
+        <tbody id="cartItemsContainer">
+          <!-- <tr>
+                <td><a href=""><img width="30" src="images/close (1).png" alt=""></a></td>
+                <td><img width="70" src="images/sp clothe 7.jpeg" alt=""></td>
+                <td>Cartoon Astonout T-Shirts</td>
+                <td>$118.19</td>
+                <td><input type="number" value="1"></td>
+                <td>$118.19</td>
+            </tr>
+            <tr>
+                <td><a href=""><img width="30" src="images/close (1).png" alt=""></a></td>
+                <td><img width="70" src="images/sp  clothe3.jpeg" alt=""></td>
+                <td>Cartoon Astonout T-Shirts</td>
+                <td>$118.19</td>
+                <td><input type="number" value="1"></td>
+                <td>$118.19</td>
+            </tr>
+            <tr>
+                <td><a href=""><img width="30" src="images/close (1).png" alt=""></a></td>
+                <td><img width="70" src="images/sp clothe 1.jpeg" alt=""></td>
+                <td>Cartoon Astonout T-Shirts</td>
+                <td>$118.19</td>
+                <td><input type="number" value="1"></td>
+                <td>$118.19</td>
+            </tr> -->
+        </tbody>
+        <div>Total Price for Items: <span id="displayTotalPrice">$0</span></div>
+        <tbody id="cartProductContainer"></tbody>
+        <div>Total Price for Items: <span id="displayTotalPrice">$0</span></div>
+        <div id="displayTotalPrice">$0</div>
+      </table>
+    </section>
+
+    <section id="cart-add" class="section-p1">
+      <div id="coupon">
+        <h3>Apply coupon</h3>
+        <div>
+          <input type="text" placeholder="Enter Your Coupon" />
+          <button class="normal">Apply</button>
+        </div>
+      </div>
+
+      <div id="Subtotal">
+        <h3></h3>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" width="30" src="images/20230902_0720112.jpg" alt="" />
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> 562 Ajagunle Road,Street 09,Challege.</p>
+        <p><strong>Phone:</strong> (+234)7035646787/(+234)9162157924</p>
+        <p><strong>Hours:</strong>09:00-18:00,Mon-Sun</p>
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <i><img width="30" src="images/facebook.png" alt="" /></i>
+            <i><img width="30" src="images/twitter2.png" alt="" /></i>
+            <i><img width="30" src="images/instrag.png" alt="" /></i>
+            <i><img width="30" src="images/youtube.png" alt="" /></i>
+            <i><img width="30" src="images/pint.png" alt="" /></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h4>about</h4>
+        <a href="#">about us</a>
+        <a href="#">Delivery information</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms & condition</a>
+        <a href="#">Contact Us</a>
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign in</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img width="150" src="images/apple.png" alt="" />
+
+          <img width="150" height="60" src="images/google play.png" alt="" />
+        </div>
+        <p>Secured Follow link (ctrl + click)</p>
+        <img width="220" src="images/visa2.png" alt="" />
+      </div>
+
+      <div class="copyright">
+        <p>© 2023,TechieLekan - Ecommerce Website</p>
+      </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script src="item.js"></script>
+  </body>
+</html>
